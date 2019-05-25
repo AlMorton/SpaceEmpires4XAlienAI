@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="alien-player-colour btn-group btn-group-toggle">
-            <label class="btn-primary" ngbButtonLabel *ngFor="let colour of colours" [ngClass]="colour">
+            <label class="btn-primary" ngbButtonLabel *ngFor="let alienPlayer of alienPlayers" ngClass={{alienPlayer.colour}}>
                 <input type="checkbox" ngbButton>
             </label>
         </div>
