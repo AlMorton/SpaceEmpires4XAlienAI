@@ -1,0 +1,11 @@
+
+<div class="container-fluid">
+  <div class="row">    
+      <div class="options-container">
+          <h3>Difficulty</h3>
+          <button type="button" class="btn btn-info" *ngFor="let option of difficultyEnum | enumToArray">
+              <p>{{option}}</p>
+            </button>
+      </div> 
+  </div>  
+</div>

@@ -1,0 +1,13 @@
+.options-container
+{
+    margin: 0 auto;
+    width:200px;    
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    button 
+    {
+        margin: 2px;
+    }
+}
