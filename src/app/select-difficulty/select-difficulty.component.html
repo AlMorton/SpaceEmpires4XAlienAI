@@ -3,9 +3,12 @@
   <div class="row">    
       <div class="options-container">
           <h3>Difficulty</h3>
-          <button type="button" class="btn btn-info" *ngFor="let option of difficultyEnum | enumToArray">
-              <p>{{option}}</p>
+          <button type="button" class="btn btn-info" *ngFor="let option of difficultyEnum | enumToArray" (click)="selectDifficulty(option)">
+              {{option}}
             </button>
       </div> 
   </div>  
+  <div class="row">
+      <div class="alien-player-colour" *ngFor="let colour of colours" [ngClass]="colour"></div>
+  </div>
 </div>

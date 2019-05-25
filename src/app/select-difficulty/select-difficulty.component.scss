@@ -1,7 +1,7 @@
 .options-container
 {
     margin: 0 auto;
-    width:200px;    
+    width:150px;    
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -10,4 +10,20 @@
     {
         margin: 2px;
     }
+}
+.alien-player-colour {
+    height: 50px;
+    width: 50px;
+}
+.red {
+    background: red;
+}
+.green {
+
+}
+.blue {
+
+}
+.yellow {
+
 }
