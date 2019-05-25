@@ -24,4 +24,3 @@ export class AlienPlayerDifficulty implements IAlienPlayerDifficulty {
         this.MaxDefenseCP = maxDefenseCP;
     }
 }
-
