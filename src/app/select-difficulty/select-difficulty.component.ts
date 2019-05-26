@@ -1,6 +1,7 @@
 import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { Difficulty } from '../enums/Difficulty.';
 import { SolitaireDifficultyFactory, IDifficultyFactory } from "../classes/SolitaireDifficultyFactory";
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'app-select-difficulty',
@@ -10,18 +11,27 @@ import { SolitaireDifficultyFactory, IDifficultyFactory } from "../classes/Solit
 export class SelectDifficultyComponent implements OnInit {
 
     private _difficultyFactory: IDifficultyFactory;
+    private colours: Array<string> = ['blue', 'green', 'yellow', 'red'];
     difficultyEnum = Difficulty;
+
     public alienPlayers: Array<AlienPlayer> = [];
     public options: Array<string>;
-    private colours: Array<string> = ['blue', 'green', 'yellow', 'red'];
+    public numberSelected: number;
+    public selectedDifficulty: Difficulty;
 
     constructor(difficultyFactory: SolitaireDifficultyFactory) {
         this._difficultyFactory = difficultyFactory;
+        this.numberSelected = 0;
     }
+   
+    pressed($event: boolean, player: AlienPlayer): void {
 
-    selectDifficulty(selected: Difficulty): void {
-
-        console.log(selected);
+        if (player.selected) {
+            this.numberSelected++;
+        }
+        if (!player.selected) {
+            this.numberSelected--;
+        }
     }
 
     ngOnInit() {

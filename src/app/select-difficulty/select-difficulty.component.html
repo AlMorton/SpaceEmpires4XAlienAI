@@ -1,17 +1,24 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="options-container">
+        <div class="title">
             <h3>Difficulty</h3>
-            <button type="button" class="btn btn-info" *ngFor="let option of difficultyEnum | enumToArray"
-                (click)="selectDifficulty(option)">
-                {{option}}
-            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="options-container btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic"
+            [(ngModel)]="selectedDifficulty">
+            <label class="al-btn btn btn-info" ngbButtonLabel *ngFor="let option of difficultyEnum | enumToArray">
+                <input ngbButton type="radio" [value]="option"> {{option}}
+            </label>
         </div>
     </div>
     <div class="row">
         <div class="alien-player-colour btn-group btn-group-toggle">
-            <label class="btn-primary" ngbButtonLabel *ngFor="let alienPlayer of alienPlayers" ngClass={{alienPlayer.colour}}>
-                <input type="checkbox" ngbButton>
+            <label class="btn-primary" ngbButtonLabel *ngFor="let alienPlayer of alienPlayers"
+                ngClass={{alienPlayer.colour}}>
+                <input type="checkbox" ngbButton [(ngModel)]="alienPlayer.selected"
+                    (ngModelChange)="pressed($event, alienPlayer)"
+                    [disabled]="numberSelected >= 2 && !alienPlayer.selected">
             </label>
         </div>
     </div>

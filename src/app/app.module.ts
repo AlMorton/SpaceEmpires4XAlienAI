@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SelectDifficultyComponent, EnumToArrayPipe } from './select-difficulty/select-difficulty.component';
 import { SolitaireDifficultyFactory } from './classes/SolitaireDifficultyFactory';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SolitaireDifficultyFactory } from './classes/SolitaireDifficultyFactory
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [SolitaireDifficultyFactory],
   bootstrap: [AppComponent]
