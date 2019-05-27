@@ -65,6 +65,13 @@ export class TechPurchasing {
     buysSecurityForceOne() {
         // Set a property of object as yet undefined
     }
+
+    shipSizeRoll() {
+        // roll dice
+        if(this.alienPlayer.techLevels.shipSize.currentLevel < this.alienPlayer.techLevels.shipSize.maxLevel) {
+            // buy next level;
+        };
+    }
 }
 
 

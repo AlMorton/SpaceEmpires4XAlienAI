@@ -2,7 +2,7 @@ import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { Difficulty } from '../enums/Difficulty.';
 import { SolitaireDifficultyFactory, IDifficultyFactory } from '../classes/SolitaireDifficultyFactory';
 import { AlienPlayer } from '../classes/AlienPlayer';
-import { GameServiceService } from '../game-service.service';
+import { GameService } from '../game.service';
 import { TechLevels } from '../classes/TechLevels';
 
 @Component({
@@ -21,7 +21,7 @@ export class SelectDifficultyComponent implements OnInit {
     public numberSelected: number;
     public selectedDifficulty: Difficulty;
 
-    constructor(public gameService: GameServiceService, difficultyFactory: SolitaireDifficultyFactory) {
+    constructor(public gameService: GameService, difficultyFactory: SolitaireDifficultyFactory) {
 
         this._difficultyFactory = difficultyFactory;
         this.numberSelected = 0;

@@ -8,13 +8,17 @@ import { SolitaireDifficultyFactory } from './classes/SolitaireDifficultyFactory
 import { FormsModule } from '@angular/forms';
 import { Dice } from './classes/Dice';
 import { TechLevels } from './classes/TechLevels';
-import { GameServiceService } from './game-service.service';
+import { GameService } from './game.service';
+import { AlienPlayerComponent, PropertiesToArrayPipe, DeCamelCase } from './alien-player/alien-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectDifficultyComponent,
-    EnumToArrayPipe
+    EnumToArrayPipe,
+    PropertiesToArrayPipe,
+    DeCamelCase,
+    AlienPlayerComponent
   ],
   imports: [
     BrowserModule,

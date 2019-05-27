@@ -3,12 +3,12 @@ import { TechLevels } from "./TechLevels";
 export class AlienPlayer {
     public colour: string;
     public selected: boolean;
-    public hasSeenEnemyFighter: boolean;
-    public hasSeenEnemyMines: boolean;
-    public hasSeenEnemyBDs: boolean;
-    public hasSeenVeteranOrgreaterEnemyShips: boolean;
-    public hasSeenEnemyRaiders: boolean;
-    public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean;
+    public hasSeenEnemyFighter: boolean = false;
+    public hasSeenEnemyMines: boolean = false;
+    public hasSeenEnemyBDs: boolean = false;
+    public hasSeenVeteranOrgreaterEnemyShips: boolean = false;
+    public hasSeenEnemyRaiders: boolean = false;
+    public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean = false;
     public techLevels: TechLevels;
 
     constructor(colour: string, techLevel: TechLevels) {
