@@ -4,22 +4,26 @@
             <h3>Difficulty</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="options-container btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic"
-            [(ngModel)]="selectedDifficulty">
-            <label class="al-btn btn btn-info" ngbButtonLabel *ngFor="let option of difficultyEnum | enumToArray">
-                <input ngbButton type="radio" [value]="option"> {{option}}
+    <form #setup="ngForm" (ngSubmit)="onStartGame()">
+        <div class="options-container form-group btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic"
+            [(ngModel)]="selectedDifficulty" [ngModelOptions]="{standalone: true}">
+            <label class="al-btn btn btn-info" ngbButtonLabel 
+            *ngFor="let option of difficultyEnum | enumToArray; index as i">
+                <input ngbButton type="radio" [value]="i + 1"> {{option}}
             </label>
         </div>
-    </div>
-    <div class="row">
-        <div class="alien-player-colour btn-group btn-group-toggle">
+        <div class="alien-player-colour form-group btn-group btn-group-toggle">
             <label class="btn-primary" ngbButtonLabel *ngFor="let alienPlayer of alienPlayers"
                 ngClass={{alienPlayer.colour}}>
                 <input type="checkbox" ngbButton [(ngModel)]="alienPlayer.selected"
-                    (ngModelChange)="pressed($event, alienPlayer)"
-                    [disabled]="numberSelected >= 2 && !alienPlayer.selected">
+                    (ngModelChange)="alienPlayerSelected($event, alienPlayer)"
+                    [disabled]="numberSelected >= 2 && !alienPlayer.selected"
+                    [ngModelOptions]="{standalone: true}">
             </label>
         </div>
-    </div>
+        <div class="form-group start-button">
+                <button type="submit" class="btn btn-success" 
+                [disabled]="numberSelected < 2">Start</button>
+        </div>        
+    </form>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { Difficulty } from '../enums/Difficulty.';
-import { SolitaireDifficultyFactory, IDifficultyFactory } from "../classes/SolitaireDifficultyFactory";
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { SolitaireDifficultyFactory, IDifficultyFactory } from '../classes/SolitaireDifficultyFactory';
+import { TechLevels } from "../classes/TechLevels";
 
 @Component({
     selector: 'app-select-difficulty',
@@ -23,8 +23,8 @@ export class SelectDifficultyComponent implements OnInit {
         this._difficultyFactory = difficultyFactory;
         this.numberSelected = 0;
     }
-   
-    pressed($event: boolean, player: AlienPlayer): void {
+
+    alienPlayerSelected($event: boolean, player: AlienPlayer): void {
 
         if (player.selected) {
             this.numberSelected++;
@@ -34,19 +34,41 @@ export class SelectDifficultyComponent implements OnInit {
         }
     }
 
+    onStartGame() {
+        let aliens = []; 
+        this.alienPlayers.forEach((el) => {
+            if (el.selected === true) {
+                aliens.push(el);
+            }
+        });
+        console.log(this.selectedDifficulty);
+        console.log(aliens);
+    }
+
     ngOnInit() {
         this.colours.forEach(colour => {
             this.alienPlayers.push(new AlienPlayer(colour));
         });
+        this.selectedDifficulty = Difficulty.Normal;
     }
 }
 
 class AlienPlayer {
+
     public colour: string;
     public selected: boolean;
+    public hasSeenEnemyFighter: boolean;
+    public hasSeenEnemyMines: boolean;
+    public hasSeenEnemyBDs: boolean;
+    public hasSeenVeteranOrgreaterEnemyShips: boolean;
+    public hasSeenEnemyRaiders: boolean;
+    public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean;
+    public alienTechLevels: TechLevels;
+
     constructor(colour: string) {
         this.colour = colour;
         this.selected = false;
+        this.alienTechLevels = new TechLevels();
     }
 }
 
