@@ -1,7 +1,8 @@
 import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { Difficulty } from '../enums/Difficulty.';
 import { SolitaireDifficultyFactory, IDifficultyFactory } from '../classes/SolitaireDifficultyFactory';
-import { TechLevels } from "../classes/TechLevels";
+import { AlienPlayer } from '../classes/AlienPlayer';
+import { GameServiceService } from '../game-service.service';
 
 @Component({
     selector: 'app-select-difficulty',
@@ -11,7 +12,7 @@ import { TechLevels } from "../classes/TechLevels";
 export class SelectDifficultyComponent implements OnInit {
 
     private _difficultyFactory: IDifficultyFactory;
-    private colours: Array<string> = ['blue', 'green', 'yellow', 'red'];
+    private _colours: Array<string> = ['blue', 'green', 'yellow', 'red'];
     difficultyEnum = Difficulty;
 
     public alienPlayers: Array<AlienPlayer> = [];
@@ -19,7 +20,8 @@ export class SelectDifficultyComponent implements OnInit {
     public numberSelected: number;
     public selectedDifficulty: Difficulty;
 
-    constructor(difficultyFactory: SolitaireDifficultyFactory) {
+    constructor(public gameService: GameServiceService, difficultyFactory: SolitaireDifficultyFactory) {
+
         this._difficultyFactory = difficultyFactory;
         this.numberSelected = 0;
     }
@@ -35,40 +37,27 @@ export class SelectDifficultyComponent implements OnInit {
     }
 
     onStartGame() {
-        let aliens = []; 
+
+        this.gameService.alienPlayers.subscribe(x => {
+            console.log(x);
+
+        });
+        const selectedAlienPlayers: AlienPlayer[] = [];
         this.alienPlayers.forEach((el) => {
             if (el.selected === true) {
-                aliens.push(el);
+                selectedAlienPlayers.push(el);
             }
         });
-        console.log(this.selectedDifficulty);
-        console.log(aliens);
+
+        this.gameService.alienPlayers
+            .next(selectedAlienPlayers);
     }
 
     ngOnInit() {
-        this.colours.forEach(colour => {
+        this._colours.forEach(colour => {
             this.alienPlayers.push(new AlienPlayer(colour));
         });
         this.selectedDifficulty = Difficulty.Normal;
-    }
-}
-
-class AlienPlayer {
-
-    public colour: string;
-    public selected: boolean;
-    public hasSeenEnemyFighter: boolean;
-    public hasSeenEnemyMines: boolean;
-    public hasSeenEnemyBDs: boolean;
-    public hasSeenVeteranOrgreaterEnemyShips: boolean;
-    public hasSeenEnemyRaiders: boolean;
-    public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean;
-    public alienTechLevels: TechLevels;
-
-    constructor(colour: string) {
-        this.colour = colour;
-        this.selected = false;
-        this.alienTechLevels = new TechLevels();
     }
 }
 

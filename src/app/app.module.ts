@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SelectDifficultyComponent, EnumToArrayPipe } from './select-difficulty/select-difficulty.component';
 import { SolitaireDifficultyFactory } from './classes/SolitaireDifficultyFactory';
 import { FormsModule } from '@angular/forms';
+import { Dice } from './classes/Dice';
 
 @NgModule({
   declarations: [
