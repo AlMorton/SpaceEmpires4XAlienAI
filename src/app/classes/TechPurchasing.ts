@@ -1,4 +1,8 @@
+import { AlienPlayer } from './AlienPlayer';
+
 export class TechPurchasing {
+
+    private alienPlayer: AlienPlayer;
 
     techPurchasing(): void {
 
@@ -16,25 +20,35 @@ export class TechPurchasing {
     }
 
     hasSeenEnemyFighters(): boolean {
-        return false;
+        return this.alienPlayer.hasSeenEnemyFighter;     
     }
 
     lacksPointDefense(): boolean {
-        return true;
+        if ( this.alienPlayer.techLevels.pointDefense.currentLevel < 1) {
+            return true;
+        }
+        return false;         
+    }
+    
+    hasSeenEnemyMines(): boolean {
+       return this.alienPlayer.hasSeenEnemyMines;       
     }
 
     lacksMineSweepOne(): boolean {
-        throw new Error('Method not implemented.');
-    }
-    hasSeenEnemyMines(): boolean {
-        throw new Error('Method not implemented.');
-    }
+        if ( this.alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
+            return true;
+        }
+        return false;
+    }   
 
     lacksSecurityForces(): boolean {
-        throw new Error('Method not implemented.');
+        if ( this.alienPlayer.techLevels.security.currentLevel < 1) {
+            return true;
+        }
+        return false;
     }
     hasSeenEnemyBDs(): boolean {
-        throw new Error('Method not implemented.');
+        return this.alienPlayer.hasSeenEnemyBDs;
     }
 
     /** 
@@ -42,6 +56,7 @@ export class TechPurchasing {
      **/
 
     buysMineSweeperOne(): void {
+        this.alienPlayer.techLevels.mineSweeper.currentLevel = 1;
         // Set a property of object as yet undefined
     }
     buysPointDefense(): void {

@@ -9,12 +9,12 @@ export class AlienPlayer {
     public hasSeenVeteranOrgreaterEnemyShips: boolean;
     public hasSeenEnemyRaiders: boolean;
     public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean;
-    public alienTechLevels: TechLevels;
+    public techLevels: TechLevels;
 
     constructor(colour: string, techLevel: TechLevels) {
         this.colour = colour;
         this.selected = false;
-        this.alienTechLevels = techLevel;
+        this.techLevels = techLevel;
     }
 }
 
