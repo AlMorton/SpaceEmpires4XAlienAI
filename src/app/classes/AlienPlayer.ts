@@ -10,10 +10,11 @@ export class AlienPlayer {
     public hasSeenEnemyRaiders: boolean;
     public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean;
     public alienTechLevels: TechLevels;
-    constructor(colour: string) {
+
+    constructor(colour: string, techLevel: TechLevels) {
         this.colour = colour;
         this.selected = false;
-        this.alienTechLevels = new TechLevels();
+        this.alienTechLevels = techLevel;
     }
 }
 

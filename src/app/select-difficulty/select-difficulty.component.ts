@@ -3,6 +3,7 @@ import { Difficulty } from '../enums/Difficulty.';
 import { SolitaireDifficultyFactory, IDifficultyFactory } from '../classes/SolitaireDifficultyFactory';
 import { AlienPlayer } from '../classes/AlienPlayer';
 import { GameServiceService } from '../game-service.service';
+import { TechLevels } from '../classes/TechLevels';
 
 @Component({
     selector: 'app-select-difficulty',
@@ -55,7 +56,7 @@ export class SelectDifficultyComponent implements OnInit {
 
     ngOnInit() {
         this._colours.forEach(colour => {
-            this.alienPlayers.push(new AlienPlayer(colour));
+            this.alienPlayers.push(new AlienPlayer(colour, new TechLevels()));
         });
         this.selectedDifficulty = Difficulty.Normal;
     }

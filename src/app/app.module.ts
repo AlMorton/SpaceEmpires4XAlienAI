@@ -7,6 +7,8 @@ import { SelectDifficultyComponent, EnumToArrayPipe } from './select-difficulty/
 import { SolitaireDifficultyFactory } from './classes/SolitaireDifficultyFactory';
 import { FormsModule } from '@angular/forms';
 import { Dice } from './classes/Dice';
+import { TechLevels } from './classes/TechLevels';
+import { GameServiceService } from './game-service.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { Dice } from './classes/Dice';
     NgbModule,
     FormsModule
   ],
-  providers: [SolitaireDifficultyFactory],
+  providers: [SolitaireDifficultyFactory, TechLevels],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
