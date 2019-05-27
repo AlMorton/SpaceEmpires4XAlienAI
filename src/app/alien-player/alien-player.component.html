@@ -1,0 +1,5 @@
+<div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe; index as i">
+  <label>{{prop | deCamelCase}}</label>
+  <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
+    [disabled]="alien[prop] === true" />
+</div>
