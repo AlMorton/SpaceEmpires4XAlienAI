@@ -1,4 +1,4 @@
-import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Difficulty } from '../enums/Difficulty.';
 import { SolitaireDifficultyFactory, IDifficultyFactory } from '../classes/SolitaireDifficultyFactory';
 import { AlienPlayer } from '../classes/AlienPlayer';
@@ -62,13 +62,4 @@ export class SelectDifficultyComponent implements OnInit {
     }
 }
 
-@Pipe({
-    name: 'enumToArray'
-})
-export class EnumToArrayPipe
-    implements PipeTransform {
-    transform(data: Object) {
-        const keys = Object.keys(data);
-        return keys.slice(keys.length / 2);
-    }
-}
+

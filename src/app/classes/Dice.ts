@@ -8,6 +8,12 @@ export class Dice {
         this.result = new Subject<number>();
     }
     roll(): void {
-        this.result.next(Math.floor(Math.random() * this._sides) + 1);
+        this.result.next(this.rollDice());
     }
+
+    rollDice(): number {
+        return Math.floor(Math.random() * this._sides) + 1;
+    }
+
+
 }

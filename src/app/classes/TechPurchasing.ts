@@ -20,29 +20,29 @@ export class TechPurchasing {
     }
 
     hasSeenEnemyFighters(): boolean {
-        return this.alienPlayer.hasSeenEnemyFighter;     
+        return this.alienPlayer.hasSeenEnemyFighter;
     }
 
     lacksPointDefense(): boolean {
-        if ( this.alienPlayer.techLevels.pointDefense.currentLevel < 1) {
-            return true;
-        }
-        return false;         
-    }
-    
-    hasSeenEnemyMines(): boolean {
-       return this.alienPlayer.hasSeenEnemyMines;       
-    }
-
-    lacksMineSweepOne(): boolean {
-        if ( this.alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
+        if (this.alienPlayer.techLevels.pointDefense.currentLevel < 1) {
             return true;
         }
         return false;
-    }   
+    }
+
+    hasSeenEnemyMines(): boolean {
+        return this.alienPlayer.hasSeenEnemyMines;
+    }
+
+    lacksMineSweepOne(): boolean {
+        if (this.alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
+            return true;
+        }
+        return false;
+    }
 
     lacksSecurityForces(): boolean {
-        if ( this.alienPlayer.techLevels.security.currentLevel < 1) {
+        if (this.alienPlayer.techLevels.security.currentLevel < 1) {
             return true;
         }
         return false;
@@ -68,10 +68,9 @@ export class TechPurchasing {
 
     shipSizeRoll() {
         // roll dice
-        if(this.alienPlayer.techLevels.shipSize.currentLevel < this.alienPlayer.techLevels.shipSize.maxLevel) {
+        if (this.alienPlayer.techLevels.shipSize.currentLevel < this.alienPlayer.techLevels.shipSize.maxLevel) {
             // buy next level;
-        };
+        }
     }
 }
-
 

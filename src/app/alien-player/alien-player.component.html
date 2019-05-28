@@ -1,5 +1,15 @@
-<div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe; index as i">
-  <label>{{prop | deCamelCase}}</label>
-  <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
-    [disabled]="alien[prop] === true" />
+<div class="card" ngClass={{alien.colour}}>
+        <div class="card-header">
+                Alien Player {{alien.colour}}
+              </div>
+    <div class="card-body">
+        <div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe; index as i">
+            <label>{{prop | deCamelCase}}</label>
+            <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
+                [disabled]="alien[prop] === true" />
+        </div>
+
+        <button class="btn btn-primary" (click)="rollForResult()">Purchase Tech</button>
+        <h3>{{purchaseResult}}</h3>
+    </div>
 </div>

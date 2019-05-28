@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-select-difficulty></app-select-difficulty>
 
-<div *ngFor="let alien of alienPlayers">
-    <app-alien-player [alien]="alien"></app-alien-player>
+<div class="player-container">
+    <app-alien-player [alien]="alien" *ngFor="let alien of alienPlayers"></app-alien-player>
 </div>
 
 <router-outlet></router-outlet>

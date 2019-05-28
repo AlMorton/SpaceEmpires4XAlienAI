@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AlienPlayer } from '../classes/AlienPlayer';
+import { TechPurchaseChartHandler } from '../classes/TechPurchaseChartHandler';
+import { TechTypes } from '../enums/TechTypes';
 
 @Component({
   selector: 'app-alien-player',
@@ -10,44 +12,21 @@ export class AlienPlayerComponent implements OnInit {
 
   @Input() public alien: AlienPlayer;
 
-  constructor() { }
+  public techpurchase: TechPurchaseChartHandler;
+  public purchaseResult: TechTypes;
+
+
+  constructor(techpurchase: TechPurchaseChartHandler) {
+    this.techpurchase = techpurchase;
+  }
+
+  rollForResult() {
+      this.purchaseResult = this.techpurchase.rollOnChart();
+  }
+
 
   ngOnInit() {
   }
 
 }
 
-@Pipe({
-  name: 'propertiesToArrayPipe'
-})
-export class PropertiesToArrayPipe implements PipeTransform {
-  transform(data: Object) {
-    
-    const keys = Object.keys(data);
-    var t = [];
-    keys.slice(keys.length / 2)
-    .forEach((x) => {
-      if(typeof data[x] === "boolean") {
-        t.push(x);
-      }
-    });
-
-    return t;
-  }
-}
-
-@Pipe({
-  name: 'deCamelCase'
-})
-export class DeCamelCase implements PipeTransform {
-  transform(data: string) {
-    
-    let str = data.replace(/^\w|[A-Z]/gi, (c) => {
-        let x = '';
-       return x += c;
-    });
-
-    return str;
-   
-  }
-}

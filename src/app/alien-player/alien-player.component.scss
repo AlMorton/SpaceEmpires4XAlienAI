@@ -1,0 +1,21 @@
+@import '../../sass/variables';
+
+.card {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.red {
+    border-color: $alienPlayerRed;       
+}
+.green {
+    border-color: $alienPlayerGreen;
+}
+.blue {
+    border-color: $alienPlayerBlue;
+}
+.yellow {
+    border-color: $alienPlayerYellow;
+}  
