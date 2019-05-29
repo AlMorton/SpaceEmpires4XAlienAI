@@ -14,6 +14,7 @@ import { AlienPlayerComponent } from './alien-player/alien-player.component';
 import { DeCamelCase } from './pipes/DeCamelCase';
 import { PropertiesToArrayPipe } from './pipes/PropertiesToArrayPipe';
 import { TechPurchaseChartHandler } from './classes/TechPurchaseChartHandler';
+import { EnumValueToString } from './pipes/EnumValueToString';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { TechPurchaseChartHandler } from './classes/TechPurchaseChartHandler';
         SelectDifficultyComponent,
         EnumToArrayPipe,
         PropertiesToArrayPipe,
+        EnumValueToString,
         DeCamelCase,
         AlienPlayerComponent
     ],
