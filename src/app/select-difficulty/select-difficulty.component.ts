@@ -38,11 +38,7 @@ export class SelectDifficultyComponent implements OnInit {
     }
 
     onStartGame() {
-
-        this.gameService.alienPlayers.subscribe(x => {
-            console.log(x);
-
-        });
+        
         const selectedAlienPlayers: AlienPlayer[] = [];
         this.alienPlayers.forEach((el) => {
             if (el.selected === true) {
@@ -50,8 +46,8 @@ export class SelectDifficultyComponent implements OnInit {
             }
         });
 
-        this.gameService.alienPlayers
-            .next(selectedAlienPlayers);
+        this.gameService.$alienPlayers
+            .next(selectedAlienPlayers);        
     }
 
     ngOnInit() {
@@ -60,6 +56,10 @@ export class SelectDifficultyComponent implements OnInit {
         });
         this.selectedDifficulty = Difficulty.Normal;
     }
+
+    ngOnDestroy() {
+        this.onStartGame();
+      }
 }
 
 

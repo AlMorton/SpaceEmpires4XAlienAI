@@ -15,6 +15,7 @@ import { DeCamelCase } from './pipes/DeCamelCase';
 import { PropertiesToArrayPipe } from './pipes/PropertiesToArrayPipe';
 import { TechPurchaseChartHandler } from './classes/TechPurchaseChartHandler';
 import { EnumValueToString } from './pipes/EnumValueToString';
+import { AlienPlayersAdminComponent } from './alien-players-admin/alien-players-admin.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { EnumValueToString } from './pipes/EnumValueToString';
         PropertiesToArrayPipe,
         EnumValueToString,
         DeCamelCase,
-        AlienPlayerComponent
+        AlienPlayerComponent,
+        AlienPlayersAdminComponent
     ],
     imports: [
         BrowserModule,

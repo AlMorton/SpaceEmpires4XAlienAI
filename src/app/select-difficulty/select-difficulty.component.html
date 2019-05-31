@@ -4,7 +4,7 @@
             <h3>Difficulty</h3>
         </div>
     </div>
-    <form #setup="ngForm" (ngSubmit)="onStartGame()">
+    <form #setup="ngForm">
         <div class="options-container form-group btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic"
             [(ngModel)]="selectedDifficulty" [ngModelOptions]="{standalone: true}">
             <label class="al-btn btn btn-info" ngbButtonLabel 
@@ -22,10 +22,8 @@
             </label>
         </div>
         <div class="form-group start-button">
-                <button type="submit" class="btn btn-success" 
+                <button class="btn btn-success" routerLink="/alienplayers"
                 [disabled]="numberSelected < 2">Start</button>
         </div>        
     </form>
 </div>
-<button class="btn btn-primary" (click)="gameService.d10.roll()">Roll Dice</button>
-<h3>{{gameService.diceResult}}</h3>

@@ -15,7 +15,6 @@ export class AlienPlayerComponent implements OnInit {
   public techpurchase: TechPurchaseChartHandler;
   public purchaseResult: TechTypes;
 
-
   constructor(techpurchase: TechPurchaseChartHandler) {
     this.techpurchase = techpurchase;
   }
@@ -23,7 +22,6 @@ export class AlienPlayerComponent implements OnInit {
   rollForResult() {
       this.purchaseResult = this.techpurchase.rollOnChart();
   }
-
 
   ngOnInit() {
   }

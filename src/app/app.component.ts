@@ -9,12 +9,6 @@ import { AlienPlayer } from './classes/AlienPlayer';
 })
 export class AppComponent {
   title = 'SpaceEmpires4XAlienAI';
-
-  public alienPlayers: Array<AlienPlayer>;
-
-  constructor(gameService: GameService) {
-    gameService.alienPlayers.subscribe(a => {
-      this.alienPlayers = a;
-    })    
-  }
+  
+  constructor() { }
 }

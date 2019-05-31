@@ -5,6 +5,12 @@
     border: 2px solid #fff;
     border-radius: 5px;
     margin: 0 5px;
+
+    .options {
+        display: flex;
+        flex-direction: row;
+    }
+
 }
 
 .red {
