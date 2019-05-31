@@ -1,4 +1,5 @@
 import { AlienPlayer } from './AlienPlayer';
+import { Tech } from './Tech';
 
 export class TechPurchasing {
 
@@ -70,6 +71,34 @@ export class TechPurchasing {
         // roll dice
         if (this.alienPlayer.techLevels.shipSize.currentLevel < this.alienPlayer.techLevels.shipSize.maxLevel) {
             // buy next level;
+        }
+    }
+}
+
+export class ShipPurchaseHandler
+{
+    constructor() {        
+    }
+    
+    purchaseShipSize(shipTech: Tech, diceRoll: number) {
+
+        if(shipTech.currentLevel === 1) {
+            shipTech.currentLevel++;            
+        }
+        else if(shipTech.currentLevel === 2 && diceRoll <= 7) {
+            shipTech.currentLevel++;
+        }
+        else if(shipTech.currentLevel === 3 && diceRoll <= 6) {
+            shipTech.currentLevel++;
+        }
+        else if(shipTech.currentLevel === 4 && diceRoll <= 5) {
+            shipTech.currentLevel++;
+        }
+        else if(shipTech.currentLevel === 5 && diceRoll <= 3) {
+            shipTech.currentLevel++;
+        }
+        else if(shipTech.currentLevel === 6 && diceRoll <= 6) {
+            shipTech.currentLevel++;
         }
     }
 }

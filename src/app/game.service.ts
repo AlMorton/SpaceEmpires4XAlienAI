@@ -11,7 +11,7 @@ export class GameService {
     public $alienPlayers: Subject<AlienPlayer[]>;    
     public d10: Dice;
     public diceResult: number;
-    public alienPlayers: AlienPlayer[];S
+    public alienPlayers: AlienPlayer[];
 
     constructor() {
         this.$alienPlayers = new Subject<AlienPlayer[]>();

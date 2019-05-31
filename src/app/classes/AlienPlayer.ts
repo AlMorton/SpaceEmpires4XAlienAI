@@ -10,6 +10,7 @@ export class AlienPlayer {
     public hasSeenEnemyRaiders: boolean = false;
     public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean = false;
     public techLevels: TechLevels;
+    public economy: AlienEconomy;
 
     constructor(colour: string, techLevel: TechLevels) {
         this.colour = colour;
