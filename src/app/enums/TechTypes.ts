@@ -1,4 +1,5 @@
-export enum TechTypes {
+export enum TechTypes 
+{
     Attack,
     Defense,
     Fighter,
@@ -12,3 +13,4 @@ export enum TechTypes {
     Boarding,
     ShipSize
 }
+

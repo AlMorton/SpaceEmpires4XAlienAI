@@ -1,4 +1,5 @@
 import { TechLevels } from "./TechLevels";
+import { AlienEconomy } from './AlienEconomy';
 
 export class AlienPlayer {
     public colour: string;
@@ -9,6 +10,7 @@ export class AlienPlayer {
     public hasSeenVeteranOrgreaterEnemyShips: boolean = false;
     public hasSeenEnemyRaiders: boolean = false;
     public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean = false;
+    public numberOfColonies: number;
     public techLevels: TechLevels;
     public economy: AlienEconomy;
 
@@ -19,13 +21,21 @@ export class AlienPlayer {
     }
 }
 
-export class AlienEconomy
+class Turn 
 {
-    public colonies: number;
-    public fleet: number;
-    public bank: number;
-    public tech: number;
-    public defenseMax: number;
-    public fleetLaunch: number;
-}
+    readonly number: number;
+    readonly fleetLaunch: Array<number>;
+    readonly fleet: Array<number>;
+    readonly tech: Array<number>;
+    readonly defense: Array<number>;
 
+    constructor(number: number, fleetLaunch: Array<number>,fleet: Array<number>, 
+                tech: Array<number>, defense: Array<number>) 
+    {
+        this.number = number;              
+        this.fleetLaunch = fleetLaunch;
+        this.fleet = fleet;
+        this.tech = tech;
+        this.defense = defense;
+    }
+}
