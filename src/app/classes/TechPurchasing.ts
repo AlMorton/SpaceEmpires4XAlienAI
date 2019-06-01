@@ -69,13 +69,6 @@ export class TechPurchasing {
             this._alienPlayer.techLevels.security.buyNextLevel();
         }
     }
-
-    shipSizeRoll() {
-        // roll dice
-        if (this._alienPlayer.techLevels.shipSize.currentLevel < this._alienPlayer.techLevels.shipSize.maxLevel) {
-            // buy next level;
-        }
-    }
 }
 
 export class ShipPurchaseHandler {
