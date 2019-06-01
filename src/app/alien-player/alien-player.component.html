@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div class="options">
-            <div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe; index as i">
+            <div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe: 'boolean'; index as i">
                 <label>{{prop | deCamelCase}}</label>
                 <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
                     [disabled]="alien[prop] === true" />
@@ -12,5 +12,16 @@
         </div>
         <button class="btn btn-primary" (click)="rollForResult()">Purchase Tech</button>
         <h3>{{purchaseResult | enumValueToString}}</h3>
+    </div>
+</div>
+<div class="card" ngClass={{alien.colour}}>
+    <div class="card-body tech-container">
+        <div class="tech-details" *ngFor="let prop of alien.techLevels | propertiesToArrayPipe">
+           <h5>{{prop | deCamelCase}}</h5> 
+            <dl *ngFor="let childProp of alien.techLevels[prop] | propertiesToArrayPipe">
+                <dt>{{childProp | deCamelCase}}: </dt>
+                <dd>{{alien.techLevels[prop][childProp]}}</dd>
+            </dl>
+        </div>       
     </div>
 </div>

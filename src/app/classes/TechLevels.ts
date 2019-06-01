@@ -20,6 +20,7 @@ export class TechLevels {
     public security = new Tech(0, 2);
     public exploration = new Tech(0, 2);
     public fastBc = new Tech(0, 1);
+
     constructor() {
 
     }

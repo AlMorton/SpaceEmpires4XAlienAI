@@ -3,14 +3,17 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'propertiesToArrayPipe'
 })
 export class PropertiesToArrayPipe implements PipeTransform {
-    transform(data: Object) {
+    transform(data: Object, type: string = null) {
         const keys = Object.keys(data);
-        const t = [];
-        keys.forEach((x) => {
-                if (typeof data[x] === 'boolean') {
+        if (type !== null) {
+            const t = [];
+            keys.forEach((x) => {
+                if (typeof data[x] === type) {
                     t.push(x);
                 }
             });
-        return t;
+            return t;
+        }
+        return keys;
     }
 }

@@ -4,13 +4,41 @@
     background-color: transparent;
     border: 2px solid #fff;
     border-radius: 5px;
-    margin: 0 5px;
+    margin: 5px;
 
     .options {
         display: flex;
         flex-direction: row;
     }
 
+    .tech-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .tech-details {
+            border: #474747 2px solid;
+            border-radius: 10%;
+            padding: 5px;
+            margin: 2px;
+            min-width: 160px;
+
+            h5 {
+                font-size: 1.10rem;
+            }
+
+            dl {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 0;
+                dt {
+                    font-weight: 100;
+                }
+                dd{
+                    margin-left: .5rem;
+                }
+            }
+        }
+    }
 }
 
 .red {

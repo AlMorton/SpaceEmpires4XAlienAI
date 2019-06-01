@@ -52,20 +52,20 @@ export class TechPurchasing {
     }
     private hasSeenEnemyBDs(): boolean {
         return this._alienPlayer.hasSeenEnemyBDs;
-    } 
+    }
 
     private buysMineSweeperOne(): void {
-        if( this._alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
+        if (this._alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
             this._alienPlayer.techLevels.mineSweeper.buyNextLevel();
         }
     }
     private buysPointDefenseOne(): void {
-        if( this._alienPlayer.techLevels.pointDefense.currentLevel < 1) {
+        if (this._alienPlayer.techLevels.pointDefense.currentLevel < 1) {
             this._alienPlayer.techLevels.pointDefense.buyNextLevel();
         }
     }
     private buysSecurityForceOne() {
-        if( this._alienPlayer.techLevels.security.currentLevel < 1) {
+        if (this._alienPlayer.techLevels.security.currentLevel < 1) {
             this._alienPlayer.techLevels.security.buyNextLevel();
         }
     }
@@ -78,29 +78,23 @@ export class TechPurchasing {
     }
 }
 
-export class ShipPurchaseHandler
-{
-    constructor() {        
+export class ShipPurchaseHandler {
+    constructor() {
     }
-    
+
     purchaseShipSize(shipTech: Tech, diceRoll: number) {
 
-        if(shipTech.currentLevel === 1) {
-            shipTech.currentLevel++;            
-        }
-        else if(shipTech.currentLevel === 2 && diceRoll <= 7) {
+        if (shipTech.currentLevel === 1) {
             shipTech.currentLevel++;
-        }
-        else if(shipTech.currentLevel === 3 && diceRoll <= 6) {
+        } else if (shipTech.currentLevel === 2 && diceRoll <= 7) {
             shipTech.currentLevel++;
-        }
-        else if(shipTech.currentLevel === 4 && diceRoll <= 5) {
+        } else if (shipTech.currentLevel === 3 && diceRoll <= 6) {
             shipTech.currentLevel++;
-        }
-        else if(shipTech.currentLevel === 5 && diceRoll <= 3) {
+        } else if (shipTech.currentLevel === 4 && diceRoll <= 5) {
             shipTech.currentLevel++;
-        }
-        else if(shipTech.currentLevel === 6 && diceRoll <= 6) {
+        } else if (shipTech.currentLevel === 5 && diceRoll <= 3) {
+            shipTech.currentLevel++;
+        } else if (shipTech.currentLevel === 6 && diceRoll <= 6) {
             shipTech.currentLevel++;
         }
     }
