@@ -3,12 +3,14 @@ import { Tech } from './Tech';
 
 export class TechPurchasing {
 
-    private alienPlayer: AlienPlayer;
+    private _alienPlayer: AlienPlayer;
 
-    techPurchasing(): void {
+    techPurchasing(alienPlayer: AlienPlayer): void {
+
+        this._alienPlayer = alienPlayer;
 
         if (this.hasSeenEnemyFighters() && this.lacksPointDefense()) {
-            this.buysPointDefense();
+            this.buysPointDefenseOne();
         }
 
         if (this.hasSeenEnemyMines() && this.lacksMineSweepOne()) {
@@ -20,56 +22,57 @@ export class TechPurchasing {
         }
     }
 
-    hasSeenEnemyFighters(): boolean {
-        return this.alienPlayer.hasSeenEnemyFighter;
+    private hasSeenEnemyFighters(): boolean {
+        return this._alienPlayer.hasSeenEnemyFighter;
     }
 
-    lacksPointDefense(): boolean {
-        if (this.alienPlayer.techLevels.pointDefense.currentLevel < 1) {
+    private lacksPointDefense(): boolean {
+        if (this._alienPlayer.techLevels.pointDefense.currentLevel < 1) {
             return true;
         }
         return false;
     }
 
-    hasSeenEnemyMines(): boolean {
-        return this.alienPlayer.hasSeenEnemyMines;
+    private hasSeenEnemyMines(): boolean {
+        return this._alienPlayer.hasSeenEnemyMines;
     }
 
-    lacksMineSweepOne(): boolean {
-        if (this.alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
+    private lacksMineSweepOne(): boolean {
+        if (this._alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
             return true;
         }
         return false;
     }
 
-    lacksSecurityForces(): boolean {
-        if (this.alienPlayer.techLevels.security.currentLevel < 1) {
+    private lacksSecurityForces(): boolean {
+        if (this._alienPlayer.techLevels.security.currentLevel < 1) {
             return true;
         }
         return false;
     }
-    hasSeenEnemyBDs(): boolean {
-        return this.alienPlayer.hasSeenEnemyBDs;
-    }
+    private hasSeenEnemyBDs(): boolean {
+        return this._alienPlayer.hasSeenEnemyBDs;
+    } 
 
-    /** 
-     * Refactor all methods below to separate class that handles purchasing 
-     **/
-
-    buysMineSweeperOne(): void {
-        this.alienPlayer.techLevels.mineSweeper.currentLevel = 1;
-        // Set a property of object as yet undefined
+    private buysMineSweeperOne(): void {
+        if( this._alienPlayer.techLevels.mineSweeper.currentLevel < 1) {
+            this._alienPlayer.techLevels.mineSweeper.buyNextLevel();
+        }
     }
-    buysPointDefense(): void {
-        // Set a property of object as yet undefined
+    private buysPointDefenseOne(): void {
+        if( this._alienPlayer.techLevels.pointDefense.currentLevel < 1) {
+            this._alienPlayer.techLevels.pointDefense.buyNextLevel();
+        }
     }
-    buysSecurityForceOne() {
-        // Set a property of object as yet undefined
+    private buysSecurityForceOne() {
+        if( this._alienPlayer.techLevels.security.currentLevel < 1) {
+            this._alienPlayer.techLevels.security.buyNextLevel();
+        }
     }
 
     shipSizeRoll() {
         // roll dice
-        if (this.alienPlayer.techLevels.shipSize.currentLevel < this.alienPlayer.techLevels.shipSize.maxLevel) {
+        if (this._alienPlayer.techLevels.shipSize.currentLevel < this._alienPlayer.techLevels.shipSize.maxLevel) {
             // buy next level;
         }
     }

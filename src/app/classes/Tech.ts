@@ -8,4 +8,10 @@ export class Tech {
         this.currentLevel = this.startingLevel;
         this.maxLevel = maxLevel;
     }
+
+    buyNextLevel(): void {
+        if (this.currentLevel < this.maxLevel) {
+            this.currentLevel++;
+        }
+    }
 }
