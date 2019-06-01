@@ -7,7 +7,7 @@ export class AlienPlayer {
     public hasSeenEnemyFighter: boolean = false;
     public hasSeenEnemyMines: boolean = false;
     public hasSeenEnemyBDs: boolean = false;
-    public hasSeenVeteranOrgreaterEnemyShips: boolean = false;
+    public hasSeenVeteranOrGreaterEnemyShips: boolean = false;
     public hasSeenEnemyRaiders: boolean = false;
     public hasSeenEnemyWithShipSizeTechGreaterThanThree: boolean = false;
     public numberOfColonies: number;

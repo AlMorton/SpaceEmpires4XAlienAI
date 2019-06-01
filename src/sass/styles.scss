@@ -9,5 +9,14 @@ $body-bg: rgb(35, 35, 35);
 @import '../../node_modules/bootstrap-scss/bootstrap.scss';
 
 
-
+input[type="checkbox"] {
+    box-sizing: border-box;
+    content: "";
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid #FFFFFE;
+    border-radius: 2px;
+    margin: 5px;
+}
 

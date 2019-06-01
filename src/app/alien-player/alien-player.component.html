@@ -5,9 +5,9 @@
     <div class="card-body">
         <div class="options">
             <div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe: 'boolean'; index as i">
-                <label>{{prop | deCamelCase}}</label>
+                <label>{{prop | deCamelCase}} </label>
                 <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
-                    [disabled]="alien[prop] === true" />
+                    [disabled]="alien[prop] === true" />               
             </div>
         </div>
         <button class="btn btn-primary" (click)="rollForResult()">Purchase Tech</button>
@@ -25,3 +25,6 @@
         </div>       
     </div>
 </div>
+
+
+  
