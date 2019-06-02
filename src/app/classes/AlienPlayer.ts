@@ -3,7 +3,6 @@ import { AlienEconomy } from './AlienEconomy';
 
 export class AlienPlayer {
     public colour: string;
-    public selected: boolean;
     public hasSeenEnemyFighter: boolean = false;
     public hasSeenEnemyMines: boolean = false;
     public hasSeenEnemyBDs: boolean = false;
@@ -14,28 +13,13 @@ export class AlienPlayer {
     public techLevels: TechLevels;
     public economy: AlienEconomy;
 
-    constructor(colour: string, techLevel: TechLevels) {
+    constructor(colour: string, techLevel: TechLevels, economy: AlienEconomy) {
         this.colour = colour;
-        this.selected = false;
         this.techLevels = techLevel;
+        this.economy = economy;
     }
 }
 
-class Turn 
-{
-    readonly number: number;
-    readonly fleetLaunch: Array<number>;
-    readonly fleet: Array<number>;
-    readonly tech: Array<number>;
-    readonly defense: Array<number>;
 
-    constructor(number: number, fleetLaunch: Array<number>,fleet: Array<number>, 
-                tech: Array<number>, defense: Array<number>) 
-    {
-        this.number = number;              
-        this.fleetLaunch = fleetLaunch;
-        this.fleet = fleet;
-        this.tech = tech;
-        this.defense = defense;
-    }
-}
+
+

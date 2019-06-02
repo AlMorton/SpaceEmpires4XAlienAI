@@ -14,10 +14,11 @@ export class AlienPlayersAdminComponent implements OnInit {
   constructor(private gameService: GameService) {
 
     this.alienPlayers = this.gameService.alienPlayers;
+    console.log(this.gameService.difficulty);
+  }
 
-  } 
-  ngOnInit() {  
-     
+  ngOnInit() {
+
   }
 
 }

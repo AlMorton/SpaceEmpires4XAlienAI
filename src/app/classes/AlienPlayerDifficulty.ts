@@ -2,25 +2,25 @@ import { inherits } from 'util';
 import { Difficulty } from '../enums/Difficulty.';
 
 export interface IAlienPlayerDifficulty {
-    Difficulty: Difficulty;
-    NumberOfAP: number;
-    NumberOfCPsPerEcon: number;
-    StartBank: number;
-    MaxDefenseCP: number;
+    difficulty: Difficulty;
+    numberOfAP: number;
+    numberOfCPsPerEcon: number;
+    startBank: number;
+    maxDefenseCP: number;
 }
 
 export class AlienPlayerDifficulty implements IAlienPlayerDifficulty {
-    readonly Difficulty: Difficulty;
-    readonly NumberOfAP: number;
-    readonly NumberOfCPsPerEcon: number;
-    readonly StartBank: number;
-    readonly MaxDefenseCP: number;
+    readonly difficulty: Difficulty;
+    readonly numberOfAP: number;
+    readonly numberOfCPsPerEcon: number;
+    readonly startBank: number;
+    readonly maxDefenseCP: number;
 
-    constructor(numberOfAp: number, numberOfCPsPerEcon: number, startBank: number, maxDefenseCP) {
-
-        this.NumberOfAP = numberOfAp;
-        this.NumberOfCPsPerEcon = numberOfCPsPerEcon;
-        this.StartBank = startBank;
-        this.MaxDefenseCP = maxDefenseCP;
+    constructor(difficulty: Difficulty, numberOfAp: number, numberOfCPsPerEcon: number, startBank: number, maxDefenseCP) {
+        this.difficulty = difficulty;
+        this.numberOfAP = numberOfAp;
+        this.numberOfCPsPerEcon = numberOfCPsPerEcon;
+        this.startBank = startBank;
+        this.maxDefenseCP = maxDefenseCP;
     }
 }
