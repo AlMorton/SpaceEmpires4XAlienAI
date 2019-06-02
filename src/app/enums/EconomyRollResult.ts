@@ -1,4 +1,4 @@
-export enum EconomyRollResult {
+export enum EconomyRollResultEnum {
     Fleet,
     Tech,
     Def

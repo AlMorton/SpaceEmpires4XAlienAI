@@ -1,5 +1,6 @@
 import { GameService } from './../game.service';
 import { AlienEconomy } from './AlienEconomy';
+
 export class EconomyPhase {
 
     private economyRolls: Array<number>;
@@ -11,7 +12,7 @@ export class EconomyPhase {
     calcAlienPlayersEconomy() {
 
         const turn = this.gameService.turn;
-        const numberOfRolls = this.economyRolls[turn];
+        const numberOfRolls = this.economyRolls[turn - 1];
 
         this.gameService.alienPlayers.forEach(ap => {
             const totalRolls = numberOfRolls + ap.numberOfColonies;
@@ -43,7 +44,7 @@ export class EconomyPhase {
         }
     }
 
-    setEconRolls(): void {
+    private setEconRolls(): void {
         this.economyRolls = [
             2, 2, 2, 2, 2,
             3, 3, 3, 3,
@@ -54,9 +55,11 @@ export class EconomyPhase {
 }
 
 export class EconomyRollResult {
+
     private fleet: Array<Array<number>>;
     private tech: Array<Array<number>>;
     private defense: Array<Array<number>>;
+
     constructor() {
         this.setArrays();
     }

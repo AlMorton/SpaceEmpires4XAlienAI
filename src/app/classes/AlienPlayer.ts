@@ -17,6 +17,7 @@ export class AlienPlayer {
         this.colour = colour;
         this.techLevels = techLevel;
         this.economy = economy;
+        this.numberOfColonies = 0;
     }
 }
 
