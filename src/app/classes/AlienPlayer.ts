@@ -21,6 +21,15 @@ export class AlienPlayer {
     }
 }
 
+export class ShipPurchase {
 
 
+    buyOneOfLargestShipSize() {
 
+    }
+}
+
+class ShipSizes {
+
+
+}

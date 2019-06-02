@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Difficulty } from '../enums/Difficulty.';
 import { SolitaireDifficultyFactory, IDifficultyFactory } from '../classes/SolitaireDifficultyFactory';
 import { GameService } from '../game.service';
 import { TechLevels } from '../classes/TechLevels';
 import { AlienPlayer } from './../classes/AlienPlayer';
 import { AlienEconomy } from '../classes/AlienEconomy';
+import { LifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
 
 interface IAlienPlayerOption {
     colour: string;
@@ -17,7 +18,7 @@ interface IAlienPlayerOption {
     styleUrls: ['./select-difficulty.component.scss']
 })
 
-export class SelectDifficultyComponent implements OnInit {
+export class SelectDifficultyComponent implements OnInit, OnDestroy  {
 
     private difficultyFactory: IDifficultyFactory;
     private colours: Array<string> = ['blue', 'green', 'yellow', 'red'];
@@ -71,6 +72,7 @@ export class SelectDifficultyComponent implements OnInit {
     }
 
     ngOnDestroy() {
+
         this.onStartGame();
     }
 

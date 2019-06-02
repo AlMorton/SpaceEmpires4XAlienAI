@@ -13,11 +13,9 @@ export class AlienPlayersAdminComponent implements OnInit {
     public alienPlayers: Array<AlienPlayer>;
     public ecoPhase: EconomyPhase;
 
-    constructor(private gameService: GameService) {
+    constructor(public gameService: GameService) {
 
         this.alienPlayers = this.gameService.alienPlayers;
-
-        console.log(this.gameService.difficulty);
         this.ecoPhase = new EconomyPhase(this.gameService, new EconomyRollResult());
     }
 

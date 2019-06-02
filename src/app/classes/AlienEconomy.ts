@@ -12,8 +12,7 @@ export class AlienEconomy {
     constructor(private difficulty: IAlienPlayerDifficulty) {
         this.bank = this.difficulty.startBank;
         this.defenseMax = this.difficulty.maxDefenseCP;
-        this.cpAmount = this.difficulty.numberOfCPsPerEcon;
-        this.colonies = 0;
+        this.cpAmount = this.difficulty.numberOfCPsPerEcon; 
         this.fleet = 0;
         this.defense = 0;
     }

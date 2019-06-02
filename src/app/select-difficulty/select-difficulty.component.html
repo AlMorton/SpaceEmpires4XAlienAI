@@ -9,7 +9,7 @@
             [(ngModel)]="selectedDifficulty" [ngModelOptions]="{standalone: true}">
             <label class="al-btn btn btn-info" ngbButtonLabel 
             *ngFor="let option of difficultyEnum | enumToArray; index as i">
-                <input ngbButton type="radio" [value]="i + 1"> {{option}}
+                <input ngbButton type="radio" [value]="i"> {{option}}
             </label>
         </div>
         <div class="alien-player-colour form-group btn-group btn-group-toggle">

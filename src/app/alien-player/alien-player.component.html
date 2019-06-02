@@ -9,6 +9,11 @@
                 <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
                     [disabled]="alien[prop] === true" />               
             </div>
+            <div class="form-group">
+                <label>Colonies</label>
+                    <input type="number" [(ngModel)]="alien.numberOfColonies"
+                    [ngModelOptions]="{standalone: true}">                
+            </div>
         </div>
         <button class="btn btn-primary" (click)="rollForResult()">Purchase Tech</button>
         <h3>{{purchaseResult | techEnumValueToString}}</h3>

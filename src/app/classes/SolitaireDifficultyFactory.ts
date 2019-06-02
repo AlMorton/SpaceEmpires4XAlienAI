@@ -8,13 +8,13 @@ export interface IDifficultyFactory {
 
 export class SolitaireDifficultyFactory implements IDifficultyFactory {
 
-    private difficluty: Difficulty;
+    private difficulty: Difficulty;
 
     constructor() {
     }
 
     create(difficulty: Difficulty) {
-        this.difficluty = difficulty;
+        this.difficulty = difficulty;
         switch (difficulty) {
             case Difficulty.Easy:
                 return this.easy();
@@ -28,12 +28,12 @@ export class SolitaireDifficultyFactory implements IDifficultyFactory {
     }
 
     private easy(): IAlienPlayerDifficulty {
-        return new AlienPlayerDifficulty(this.difficluty, 2, 5, 100, 50);
+        return new AlienPlayerDifficulty(this.difficulty, 2, 5, 100, 50);
     }
     private normal(): IAlienPlayerDifficulty {
-        return new AlienPlayerDifficulty(this.difficluty, 2, 10, 100, 50);
+        return new AlienPlayerDifficulty(this.difficulty, 2, 10, 100, 50);
     }
     private hard(): IAlienPlayerDifficulty {
-        return new AlienPlayerDifficulty(this.difficluty, 2, 15, 100, 50);
+        return new AlienPlayerDifficulty(this.difficulty, 2, 15, 100, 50);
     }
 }

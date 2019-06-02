@@ -78,7 +78,7 @@ export class EconomyRollResult {
     private result(rangeForTurn: number[], roll: number): boolean {
         const from = rangeForTurn[0];
         const to = rangeForTurn[1];
-        if (from >= roll && to <= roll) {
+        if (from <= roll && roll <= to) {
             return true;
         }
         return false;
