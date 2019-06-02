@@ -11,7 +11,7 @@
             </div>
         </div>
         <button class="btn btn-primary" (click)="rollForResult()">Purchase Tech</button>
-        <h3>{{purchaseResult | enumValueToString}}</h3>
+        <h3>{{purchaseResult | techEnumValueToString}}</h3>
     </div>
 </div>
 <div class="card" ngClass={{alien.colour}}>
@@ -25,3 +25,15 @@
         </div>       
     </div>
 </div>
+<div class="card" ngClass={{alien.colour}}>
+        <div class="card-body tech-container">
+            <div class="tech-details" *ngFor="let prop of alien.economy | propertiesToArrayPipe">
+               <h5>{{prop | deCamelCase}}</h5> 
+               <p *ngIf="prop !== 'difficulty'">{{alien.economy[prop]}}</p>
+                <dl *ngFor="let childProp of alien.economy[prop] | propertiesToArrayPipe">
+                    <dt>{{childProp | deCamelCase }}: </dt>
+                    <dd>{{alien.economy[prop][childProp] }}</dd>
+                </dl>
+            </div>       
+        </div>
+    </div>

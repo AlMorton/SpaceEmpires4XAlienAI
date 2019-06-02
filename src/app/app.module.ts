@@ -14,7 +14,7 @@ import { AlienPlayerComponent } from './alien-player/alien-player.component';
 import { DeCamelCase } from './pipes/DeCamelCase';
 import { PropertiesToArrayPipe } from './pipes/PropertiesToArrayPipe';
 import { TechPurchaseChartHandler } from './classes/TechPurchaseChartHandler';
-import { EnumValueToString } from './pipes/EnumValueToString';
+import { TechEnumValueToString } from './pipes/TetchEnumValueToString';
 import { AlienPlayersAdminComponent } from './alien-players-admin/alien-players-admin.component';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { AlienPlayersAdminComponent } from './alien-players-admin/alien-players-
         SelectDifficultyComponent,
         EnumToArrayPipe,
         PropertiesToArrayPipe,
-        EnumValueToString,
+        TechEnumValueToString,
         DeCamelCase,
         AlienPlayerComponent,
         AlienPlayersAdminComponent
