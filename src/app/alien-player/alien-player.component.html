@@ -6,12 +6,12 @@
         <div class="options">
             <div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe: 'boolean'; index as i">
                 <label>{{prop | deCamelCase}} </label>
-                <input type="checkbox" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
+                <input type="checkbox"  class="form-control" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
                     [disabled]="alien[prop] === true" />               
             </div>
             <div class="form-group">
                 <label>Colonies</label>
-                    <input type="number" [(ngModel)]="alien.numberOfColonies"
+                    <input type="number"  class="form-control" [(ngModel)]="alien.numberOfColonies"
                     [ngModelOptions]="{standalone: true}">                
             </div>
         </div>
