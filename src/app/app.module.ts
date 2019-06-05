@@ -7,7 +7,7 @@ import { SelectDifficultyComponent } from './select-difficulty/select-difficulty
 import { EnumToArrayPipe } from './pipes/EnumToArrayPipe';
 import { SolitaireDifficultyFactory } from './classes/SolitaireDifficultyFactory';
 import { FormsModule } from '@angular/forms';
-import { AlienPlayerComponent } from './alien-player/alien-player.component';
+import { AlienPlayerComponent, HighlightDirective } from './alien-player/alien-player.component';
 import { DeCamelCase } from './pipes/DeCamelCase';
 import { PropertiesToArrayPipe } from './pipes/PropertiesToArrayPipe';
 import { TechPurchaseChartHandler } from './classes/TechPurchaseChartHandler';
@@ -25,7 +25,8 @@ import { GameService } from './game.service';
         TechEnumValueToString,
         DeCamelCase,
         AlienPlayerComponent,
-        AlienPlayersAdminComponent
+        AlienPlayersAdminComponent,
+        HighlightDirective
     ],
     imports: [
         BrowserModule,

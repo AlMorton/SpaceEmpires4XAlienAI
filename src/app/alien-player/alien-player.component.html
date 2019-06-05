@@ -6,13 +6,13 @@
         <div class="options">
             <div class="form-group" *ngFor="let prop of alien | propertiesToArrayPipe: 'boolean'; index as i">
                 <label>{{prop | deCamelCase}} </label>
-                <input type="checkbox"  class="form-control" [(ngModel)]="alien[prop]" [ngModelOptions]="{standalone: true}"
-                    [disabled]="alien[prop] === true" />               
+                <input type="checkbox" class="form-control" [(ngModel)]="alien[prop]"
+                    [ngModelOptions]="{standalone: true}" [disabled]="alien[prop] === true" />
             </div>
             <div class="form-group">
                 <label>Colonies</label>
-                    <input type="number"  class="form-control" [(ngModel)]="alien.numberOfColonies"
-                    [ngModelOptions]="{standalone: true}">                
+                <input type="number" class="form-control" [(ngModel)]="alien.numberOfColonies"
+                    [ngModelOptions]="{standalone: true}">
             </div>
         </div>
         <button class="btn btn-primary" (click)="rollForResult()">Purchase Tech</button>
@@ -22,23 +22,24 @@
 <div class="card" ngClass={{alien.colour}}>
     <div class="card-body tech-container">
         <div class="tech-details" *ngFor="let prop of alien.techLevels | propertiesToArrayPipe">
-           <h5>{{prop | deCamelCase}}</h5> 
+            <h5>{{prop | deCamelCase}}</h5>
             <dl *ngFor="let childProp of alien.techLevels[prop] | propertiesToArrayPipe">
                 <dt>{{childProp | deCamelCase}}: </dt>
                 <dd>{{alien.techLevels[prop][childProp]}}</dd>
             </dl>
-        </div>       
+        </div>
     </div>
 </div>
 <div class="card" ngClass={{alien.colour}}>
-        <div class="card-body tech-container">
-            <div class="tech-details" *ngFor="let prop of alien.economy | propertiesToArrayPipe">
-               <h5>{{prop | deCamelCase}}</h5> 
-               <p *ngIf="prop !== 'difficulty'">{{alien.economy[prop]}}</p>
-                <dl *ngFor="let childProp of alien.economy[prop] | propertiesToArrayPipe">
-                    <dt>{{childProp | deCamelCase }}: </dt>
-                    <dd>{{alien.economy[prop][childProp] }}</dd>
-                </dl>
-            </div>       
+    <div class="card-header" appShowHide >Tech</div>
+    <div class="card-body tech-container">
+        <div class="tech-details" *ngFor="let prop of alien.economy | propertiesToArrayPipe">
+            <h5>{{prop | deCamelCase}}</h5>
+            <p *ngIf="prop !== 'difficulty'">{{alien.economy[prop]}}</p>
+            <dl *ngFor="let childProp of alien.economy[prop] | propertiesToArrayPipe">
+                <dt>{{childProp | deCamelCase }}: </dt>
+                <dd>{{alien.economy[prop][childProp] }}</dd>
+            </dl>
         </div>
     </div>
+</div>
