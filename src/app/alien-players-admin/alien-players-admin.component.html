@@ -1,8 +1,10 @@
 <div class="buttons-container">
     <button class="btn btn-primary" (click)="nextTurn()">Next Turn</button>
     <h2>{{this.gameService.turn}}</h2>
-    <button  class="btn btn-primary" (click)="ecoPhase.calcAlienPlayersEconomy();">Eco phase</button>
+    <button class="btn btn-primary" (click)="ecoPhase.calcAlienPlayersEconomy();">Eco phase</button>
 </div>
-<div class="player-container">    
-    <app-alien-player [alien]="alien" *ngFor="let alien of alienPlayers"></app-alien-player>
+<div class="player-container">
+    <div class="alien-player" *ngFor="let alien of alienPlayers">
+        <app-alien-player [alien]="alien"></app-alien-player>
+    </div>
 </div>

@@ -10,12 +10,23 @@ import { element } from 'protractor';
     selector: '[appShowHide]'
 })
 export class HighlightDirective {
+    private hide: boolean;
+    private sib: any;
     constructor(private renderer: Renderer2, private el: ElementRef) {
-
+        this.hide = false;        
     }
 
     @HostListener('click') onClick() {
-        this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
+        
+        this.sib = this.renderer.nextSibling(this.el.nativeElement);
+        if(!this.hide) {
+            this.renderer.setStyle(this.sib, 'display', 'none');
+            this.hide = true;
+        }
+        else {
+            this.renderer.setStyle(this.sib, 'display', 'flex');
+            this.hide = false;
+        }        
     }
 }
 

@@ -20,6 +20,20 @@
     </div>
 </div>
 <div class="card" ngClass={{alien.colour}}>
+        <div class="card-header" appShowHide >Economy</div>
+        <div class="card-body tech-container">
+            <div class="tech-details" *ngFor="let prop of alien.economy | propertiesToArrayPipe">
+                <h5>{{prop | deCamelCase}}</h5>
+                <p *ngIf="prop !== 'difficulty'">{{alien.economy[prop]}}</p>
+                <dl *ngFor="let childProp of alien.economy[prop] | propertiesToArrayPipe">
+                    <dt>{{childProp | deCamelCase }}: </dt>
+                    <dd>{{alien.economy[prop][childProp] }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+<div class="card" ngClass={{alien.colour}}>
+        <div class="card-header" appShowHide >Tech Levels</div>
     <div class="card-body tech-container">
         <div class="tech-details" *ngFor="let prop of alien.techLevels | propertiesToArrayPipe">
             <h5>{{prop | deCamelCase}}</h5>
@@ -30,16 +44,4 @@
         </div>
     </div>
 </div>
-<div class="card" ngClass={{alien.colour}}>
-    <div class="card-header" appShowHide >Tech</div>
-    <div class="card-body tech-container">
-        <div class="tech-details" *ngFor="let prop of alien.economy | propertiesToArrayPipe">
-            <h5>{{prop | deCamelCase}}</h5>
-            <p *ngIf="prop !== 'difficulty'">{{alien.economy[prop]}}</p>
-            <dl *ngFor="let childProp of alien.economy[prop] | propertiesToArrayPipe">
-                <dt>{{childProp | deCamelCase }}: </dt>
-                <dd>{{alien.economy[prop][childProp] }}</dd>
-            </dl>
-        </div>
-    </div>
-</div>
+
