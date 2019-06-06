@@ -6,6 +6,12 @@
     border-radius: 5px;
     margin: 5px;   
 
+    
+
+    .card-body {
+        padding: 0 0.5rem;
+    }
+
     .options {
         display: flex;
         flex-direction: row;
@@ -57,15 +63,32 @@
     }
 }
 
+
+@mixin setGradient($colour) {
+     background-image: linear-gradient(to right, rgba(255,0,0,0) 50%, $colour);    
+};
+
 .red {
-    border-color: $alienPlayerRed;       
+    border-color: $alienPlayerRed;  
+    .card-header {
+        @include setGradient($alienPlayerRed);
+    }    
 }
 .green {
     border-color: $alienPlayerGreen;
+    .card-header {
+        @include setGradient($alienPlayerGreen);
+    }     
 }
 .blue {
     border-color: $alienPlayerBlue;
+    .card-header {
+        @include setGradient($alienPlayerBlue);
+    }     
 }
 .yellow {
     border-color: $alienPlayerYellow;
+    .card-header {
+        @include setGradient($alienPlayerYellow);
+    }     
 }  
